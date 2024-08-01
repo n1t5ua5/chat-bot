@@ -1,0 +1,16 @@
+{
+    "questions": [
+        {
+            "question": "What is a list in Python?",
+            "answer": "A list is an ordered mutable collection of items. It can hold elements of different data types & begins at the index of 0 instead of 1. You can create one by inputting data in between two square brackets, []."
+        },
+        {
+            "question": "Please return today's forecast for Miami, Florida.",
+            "answer": "Sunny & hot all day with a cool breeze throughout the afternoon with a 10% chance of rain around 8pm."
+        },
+        {
+            "question": "What is the greatest heavy metal band of all time?",
+            "answer": "Within the Ruins, check out their album Elite!"
+        }
+    ]
+}
