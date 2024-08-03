@@ -1,0 +1,94 @@
+// DECLARE VARIABLES
+
+Declare knowledge_base as Dictionary
+Declare user_name as String
+Declare user_input as String
+Declare best_match as String
+Declare answer as String
+Declare new_answer as String
+Declare file as File
+Declare data as Dictionary
+Declare matches as List
+Declare questions_list as List
+Declare new_entry as Dictionary
+Declare i as Integer
+
+
+// FUNCTION DEFINTIONS
+
+Function load_knowledge_base(file_path)
+    Open file_path for reading
+    Set data to JSON data read from file
+    Close file
+    Return data
+
+Function save_knowledge_base(file_path, data)
+    Open file_path for writing
+    Write JSON data to file with indentation
+    Close file
+
+Function find_best_match(user_question, questions)
+    Set matches to closest matches to user_question in questions
+    If length of matches > 0 Then
+        Return first element of matches
+    Else
+        Return None
+
+Function get_answer_for_question(question, knowledge_base)
+    For i = 0 To length of knowledge_base["questions"] - 1
+        If knowledge_base["questions"][i]["question"] == question Then
+            Return knowledge_base["questions"][i]["answer"]
+    End For
+    Return None
+
+Function GetQuestionsList(knowledge_base)
+    Set questions_list to empty list
+    For i = 0 To length of knowledge_base["questions"] - 1
+        Append questions_list, knowledge_base["questions"][i]["question"]
+    End For
+    Return questions_list
+
+Function AppendQuestionAnswer(knowledge_base, question, answer)
+    Set new_entry["question"] to question
+    Set new_entry["answer"] to answer
+    Append knowledge_base["questions"], new_entry
+
+// MAIN CHAT BOT CODE
+
+Set knowledge_base to load_knowledge_base("knowledge_base.json")
+
+Output "Hello there! Type 'quit' to exit or input username: "
+Input user_name
+Output "Thank you, " + user_name + ", my name is Chathy! How may I assist?"
+
+While True
+    Output "User: "
+    Input user_input
+
+    If user_input.ToLower() == "quit" Then
+        Break
+
+    Set best_match to find_best_match(user_input, GetQuestionsList(knowledge_base))
+
+    If best_match != None Then
+        Set answer to get_answer_for_question(best_match, knowledge_base)
+        Set answer to Replace(answer, "your name", user_name)
+        Output "Bot: " + answer
+    Else
+        Output "Bot: I don't know the answer. Can you teach me?"
+        Output "Type the answer or 'skip' to skip: "
+        Input new_answer
+
+        If new_answer.ToLower() != "skip" Then
+            AppendQuestionAnswer(knowledge_base, user_input, new_answer)
+            save_knowledge_base("knowledge_base.json", knowledge_base)
+            Output "Bot: Thank you! I learned a new response!"
+End While
+
+
+// JSON LOGIC
+
+Declare empty list of "Answers"
+    Answers are appended to list after input by users
+
+
