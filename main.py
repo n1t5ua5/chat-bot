@@ -28,7 +28,7 @@ def get_answer_for_question(question: str, knowledge_base: dict) -> str | None:
 def chat_bot():
     knowledge_base: dict = load_knowledge_base('knowledge_base.json')
 
-    user_name = input("Hello there! Type 'quit' to exit or input username: ")
+    user_name = input("Hello there! Please input username or 'quit' to exit: ")
     print(
         f"Thank you, {user_name}, my name is Chathy! How may I assist?")
 

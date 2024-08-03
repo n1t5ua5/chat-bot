@@ -1,3 +1,4 @@
+
 // DECLARE VARIABLES
 
 Declare knowledge_base as Dictionary
@@ -53,6 +54,8 @@ Function AppendQuestionAnswer(knowledge_base, question, answer)
     Set new_entry["answer"] to answer
     Append knowledge_base["questions"], new_entry
 
+
+
 // MAIN CHAT BOT CODE
 
 Set knowledge_base to load_knowledge_base("knowledge_base.json")
@@ -86,9 +89,14 @@ While True
 End While
 
 
+
 // JSON LOGIC
 
-Declare empty list of "Answers"
-    Answers are appended to list after input by users
-
-
+KnowledgeBase
+  Questions = [
+    Question1 = {
+      QuestionText = "What is a list in Python?"
+      Answer = "A list is an ordered mutable collection of items. It can hold elements of different data types & begins at the index of 0 instead of 1. You can create one by inputting data in between two square brackets, []."
+    }
+    // ... more questions and answers
+  ]

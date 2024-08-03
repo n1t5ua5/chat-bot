@@ -11,6 +11,10 @@
         {
             "question": "What is the greatest heavy metal band of all time?",
             "answer": "Within the Ruins, check out their album Elite!"
+        },
+        {
+            "question": "Is Inter Miami playing tonight?",
+            "answer": "Yes, at 8PM! You can check the score at LiveSoccerTV.com."
         }
     ]
 }
