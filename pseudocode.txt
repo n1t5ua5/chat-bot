@@ -60,7 +60,7 @@ Function AppendQuestionAnswer(knowledge_base, question, answer)
 
 Set knowledge_base to load_knowledge_base("knowledge_base.json")
 
-Output "Hello there! Type 'quit' to exit or input username: "
+Output "Hello there! Please input username or 'quit' to exit: "
 Input user_name
 Output "Thank you, " + user_name + ", my name is Chathy! How may I assist?"
 
